@@ -3,6 +3,20 @@ const $ = require('cheerio');
 const CronJob = require('cron').CronJob;
 const queryString = require('query-string');
 
+const dbConfig = require('./config/database.config.js');
+const mongoose = require('mongoose');
+
+mongoose.Promise = global.Promise;
+
+mongoose.connect(dbConfig.url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(()=>{
+    console.log("Successfully Connected to DB");
+}).catch(err=>{
+    console.log('Could not connect to DB.',err);
+});
+
 // const amazon = require('./util/amazon.js');
 // const flipkart = require('./util/flipkart.js')
 const snapdeal = require('./util/snapdeal.js')
@@ -33,7 +47,6 @@ const getData = () => {
     const Aproductinfo = [];
     const Flipkart = [];
     const SnapDeal = [];
-    process.setMaxListeners(0);
     // queries.forEach((query) => {
     //     Aproductinfo.push(amazon.getprod(amazon.baseURL+queryString.stringify({k:query})))
     // })

@@ -3,9 +3,10 @@ const $ = require('cheerio');
 
 
     async function configureBrowser(link) {
+        const url = "https://www.snapdeal.com/search?keyword="+link;
         const browser = await puppeteer.launch();
         const page = await browser.newPage();
-        await page.goto(link);
+        await page.goto(url);
         return page;
     }
     
@@ -62,4 +63,3 @@ const $ = require('cheerio');
     }
 
 exports.getprod = getProduct;
-exports.baseURL = 'https://www.snapdeal.com/search?keyword=';

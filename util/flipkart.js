@@ -2,12 +2,13 @@ const puppeteer = require('puppeteer');
 const $ = require('cheerio');
 
 
-    async function configureBrowser(link) {
-        const browser = await puppeteer.launch();
-        const page = await browser.newPage();
-        await page.goto(link);
-        return page;
-    }
+async function configureBrowser(link) {
+    const url = "https://www.flipkart.com/search?"+link;
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto(url);
+    return page;
+}
     
     async function getInfo(page) {
         await page.reload();
@@ -62,4 +63,3 @@ const $ = require('cheerio');
     }
 
 exports.getprod = getProduct;
-exports.baseURL = 'https://www.flipkart.com/search?';
