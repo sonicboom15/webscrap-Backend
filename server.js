@@ -3,8 +3,9 @@ const $ = require('cheerio');
 const CronJob = require('cron').CronJob;
 const queryString = require('query-string');
 
-const amazon = require('./util/amazon.js');
-const flipkart = require('./util/flipkart.js')
+// const amazon = require('./util/amazon.js');
+// const flipkart = require('./util/flipkart.js')
+const snapdeal = require('./util/snapdeal.js')
 
 const bodyParser = require('body-parser');
 
@@ -19,7 +20,6 @@ const queries = [
     'Oppo F15 (Unicorn White, 8GB RAM, 128GB Storage)',
     'Apple Iphone 7(32GB)',
     'Samsung Galaxy M40',
-    'LG G8X',
     'Redmi Note 9 Pro Max'
 ];
 
@@ -34,14 +34,18 @@ const getData = () => {
     const Flipkart = [];
     const SnapDeal = [];
     process.setMaxListeners(0);
-    queries.forEach((query) => {
-        Aproductinfo.push(amazon.getprod(amazon.baseURL+queryString.stringify({k:query})))
-    })
-    Promise.all(Aproductinfo).then(()=>{console.log(Aproductinfo)});
+    // queries.forEach((query) => {
+    //     Aproductinfo.push(amazon.getprod(amazon.baseURL+queryString.stringify({k:query})))
+    // })
+    // Promise.all(Aproductinfo).then(()=>{console.log(Aproductinfo)});
     /*queries.forEach((query) => {
         Flipkart.push(flipkart.getprod(flipkart.baseURL+queryString.stringify({q:query})))
     })
     Promise.all(Flipkart).then(()=>{console.log(Flipkart)});*/
+    queries.forEach((query) => {
+        SnapDeal.push(snapdeal.getprod(snapdeal.baseURL+queryString.stringify({k:query})))
+    })
+    Promise.all(SnapDeal).then(()=>{console.log(SnapDeal)});
 }
 
 app.get('/', (req, res) => {
