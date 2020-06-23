@@ -1,0 +1,22 @@
+{
+  "name": "webscraper",
+  "version": "0.0.1",
+  "description": "Node Backend to Web Scrapper",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rishi Kumar S",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cheerio": "^1.0.0-rc.3",
+    "cron": "^1.8.2",
+    "express": "^4.17.1",
+    "html-to-json-data": "^1.6.0",
+    "mongoose": "^5.9.19",
+    "nodejs-web-scraper": "^3.0.3",
+    "puppeteer": "^4.0.0",
+    "query-string": "^6.13.1"
+  }
+}
