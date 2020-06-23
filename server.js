@@ -11,10 +11,10 @@ mongoose.Promise = global.Promise;
 mongoose.connect(dbConfig.url, {
     useNewUrlParser: true,
     useUnifiedTopology: true
-}).then(()=>{
+}).then(() => {
     console.log("Successfully Connected to DB");
-}).catch(err=>{
-    console.log('Could not connect to DB.',err);
+}).catch(err => {
+    console.log('Could not connect to DB.', err);
 });
 
 // const amazon = require('./util/amazon.js');
@@ -56,13 +56,13 @@ const getData = () => {
     })
     Promise.all(Flipkart).then(()=>{console.log(Flipkart)});*/
     queries.forEach((query) => {
-        SnapDeal.push(snapdeal.getprod(snapdeal.baseURL+queryString.stringify({k:query})))
+        SnapDeal.push(snapdeal.getprod(snapdeal.baseURL + queryString.stringify({ k: query })))
     })
-    Promise.all(SnapDeal).then(()=>{console.log(SnapDeal)});
+    Promise.all(SnapDeal).then(() => { console.log(SnapDeal) });
 }
 
 app.get('/', (req, res) => {
-    res.json({"message": "Hey"});
+    res.json({ "message": "Hey" });
 });
 
 getData();
