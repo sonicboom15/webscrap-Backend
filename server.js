@@ -47,16 +47,16 @@ const getData = () => {
     const Aproductinfo = [];
     const Flipkart = [];
     const SnapDeal = [];
-    // queries.forEach((query) => {
-    //     Aproductinfo.push(amazon.getprod(amazon.baseURL+queryString.stringify({k:query})))
-    // })
-    // Promise.all(Aproductinfo).then(()=>{console.log(Aproductinfo)});
-    /*queries.forEach((query) => {
+    queries.forEach((query) => {
+        Aproductinfo.push(amazon.getprod(amazon.baseURL+queryString.stringify({k:query})))
+    })
+    Promise.all(Aproductinfo).then(()=>{console.log(Aproductinfo)});
+    queries.forEach((query) => {
         Flipkart.push(flipkart.getprod(flipkart.baseURL+queryString.stringify({q:query})))
     })
-    Promise.all(Flipkart).then(()=>{console.log(Flipkart)});*/
+    Promise.all(Flipkart).then(()=>{console.log(Flipkart)});
     queries.forEach((query) => {
-        SnapDeal.push(snapdeal.getprod(snapdeal.baseURL + queryString.stringify({ k: query })))
+        SnapDeal.push(snapdeal.getprod(snapdeal.baseURL + queryString.stringify({ t: query })))
     })
     Promise.all(SnapDeal).then(() => { console.log(SnapDeal) });
 }
